@@ -22,8 +22,8 @@ UMC 11기 인프라 트랙 워크북 실습·미션 기록입니다.
 ## 진행 현황
 | 주차 | 주제 | PR | 결과 | 핵심 캡처 |
 |---|---|---|---|---|
-| 0 | 스터디 준비 (AWS 계정, IAM, CLI) | | [정리](docs/weeks/week00.md) | [무료 플랜](docs/captures/week00/01-aws-signup-free-plan.png) · [IAM 사용자](docs/captures/week00/03-iam-user-policy.png) |
-| 1 | 신뢰할 수 있는 배포 파이프라인 (무중단 배포) | | 다운타임 **8.6초 → 0초** · [정리](docs/weeks/week01.md) · [미션 기록](docs/missions/week01.md) | [before](docs/captures/week01/01-before-result-chart.png) · [배포 중 Draining](docs/captures/week01/15-tg-draining-mid-deploy.png) · [after](docs/captures/week01/18-after-result.png) |
+| 0 | 스터디 준비 (AWS 계정, IAM, CLI) | [#1](https://github.com/0514swkim-web/11th_UMC_INFRA_STUDY/pull/1) | [정리](docs/weeks/week00.md) | [무료 플랜](docs/captures/week00/01-aws-signup-free-plan.png) · [IAM 사용자](docs/captures/week00/03-iam-user-policy.png) |
+| 1 | 신뢰할 수 있는 배포 파이프라인 (무중단 배포) | [#2](https://github.com/0514swkim-web/11th_UMC_INFRA_STUDY/pull/2) | 다운타임 **8.6초 → 0초** · [정리](docs/weeks/week01.md) · [미션 기록](docs/missions/week01.md) | [before](docs/captures/week01/01-before-result-chart.png) · [배포 중 Draining](docs/captures/week01/15-tg-draining-mid-deploy.png) · [after](docs/captures/week01/18-after-result.png) |
 
 ## 1주차 한눈에 보기
 
