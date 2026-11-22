@@ -1,0 +1,24 @@
+# 워크북 원본 (저작권: All rights reserved — 공개 레포에 올리지 않음)
+workbooks/
+
+# 개인 학습 메모 (대화 기록 · 복습용 요약 · 체크리스트) — 로컬 전용
+notes/
+
+# 비밀값 / 환경 설정 — 절대 커밋 금지
+.env
+.env.*
+*.pem
+*.key
+secrets/
+**/ssm-values*.sh
+
+# AWS CLI 실행 중 생기는 임시 산출물 (계정 ID, SG ID 등이 들어감)
+lt.json
+*.local.json
+*.local.sh
+
+# OS / 에디터
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
