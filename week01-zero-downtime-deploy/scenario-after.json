@@ -1,0 +1,4 @@
+{"target":{"url":"http://<ALB-DNS>/members","method":"POST","headers":{"Content-Type":"application/json"},
+ "body":"{\"email\":\"lab-{{uuid}}@test.local\",\"password\":\"Test1234!\",\"nickname\":\"r{{random}}\"}","timeoutMs":5000},
+ "success":{"statusCodes":[200,201]},"load":{"rps":5,"durationSec":600},
+ "analysis":{"slowThresholdMs":1000,"baselineSec":30,"minConsecutiveFailures":3}}

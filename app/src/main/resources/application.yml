@@ -1,0 +1,22 @@
+# [인프라 1주차] 워크북 swap.sh 가 docker run -e 로 넘기는 환경 변수를 읽도록 변경
+# ${이름:기본값} → 환경 변수가 없으면(로컬 개발) 기본값 사용
+server:
+  port: ${PORT:8080}  # 워크북은 PORT=3000 을 넘긴다
+
+spring:
+  application:
+    name: "umc-movie"
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:umc_movie}
+    username: ${DB_USER:root}
+    # IntelliJ 실행 구성 → 환경 변수에 DB_PASSWORD=본인비밀번호 등록
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+# 실행 구성 → 환경 변수에 JWT_SECRET(32자 이상), JWT_ACCESS_EXPIRATION(초) 등록
+jwt:
+  secret: ${JWT_SECRET} # 토큰 서명용 비밀키. 코드에 직접 쓰지 않음
+  access-expiration: ${JWT_ACCESS_EXPIRATION} # 토큰 유효시간(초), 3600 = 1시간

@@ -1,0 +1,35 @@
+# [인프라 1주차] P1 로컬 검증용 — 내 PC의 MySQL을 건드리지 않고
+# MySQL 컨테이너 + 앱 컨테이너를 함께 띄워 Docker 이미지가 정상 동작하는지 확인한다.
+# 실행:  docker compose -f compose.local.yml up --build
+# 확인:  curl.exe http://localhost:3000/health
+# 종료:  docker compose -f compose.local.yml down -v
+# (아래 비밀번호/시크릿은 로컬 테스트 전용 더미 값)
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: local-only-pw
+    volumes:
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql:ro
+      - ./sql/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-plocal-only-pw"]
+      interval: 5s
+      retries: 20
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:          # 워크북 swap.sh 가 넘기는 것과 같은 이름
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_USER: root
+      DB_PASSWORD: local-only-pw
+      DB_NAME: umc_movie
+      PORT: "3000"
+      JWT_SECRET: local-only-jwt-secret-0123456789-abcdefghij
+      JWT_ACCESS_EXPIRATION: "3600"
